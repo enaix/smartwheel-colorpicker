@@ -1,16 +1,15 @@
 from setuptools import setup
 
 setup(
-    name='vcolorpicker',
+    name='swcolorpicker',
     version='1.4.1',
-    description='Open a visual vcolorpicker from any project.',
-    long_description='Open a visual vcolorpicker from any project.\nFor more info visit '
-                     'https://github.com/nlfmt/pyqt-colorpicker',
-    url='https://github.com/nlfmt/pyqt-colorpicker',
-    author='nlfmt',
-    author_email='nlfmt@gmx.de',
+    description='Color picker component of smartwheel-core',
+    long_description='Forked from https://github.com/nlfmt/pyqt-colorpicker',
+    url='https://github.com/enaix/smartwheel-colorpicker',
+    author='enaix',
+    author_email='eanix@protonmail.com',
     license='MIT',
-    packages=['vcolorpicker'],
+    packages=['swcolorpicker'],
     install_requires=['pyqt5'],
     keywords=["python", "color", "gui", "colorpicker", "visual"],
 
