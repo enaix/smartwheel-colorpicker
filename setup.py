@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='swcolorpicker',
-    version='1.4.1',
+    version='1.4.2',
     description='Color picker component of smartwheel-core',
     long_description='Forked from https://github.com/nlfmt/pyqt-colorpicker',
     url='https://github.com/enaix/smartwheel-colorpicker',
@@ -10,7 +10,7 @@ setup(
     author_email='eanix@protonmail.com',
     license='MIT',
     packages=['swcolorpicker'],
-    install_requires=['pyqt5'],
+    install_requires=['pyqt6'],
     keywords=["python", "color", "gui", "colorpicker", "visual"],
 
     classifiers=[

@@ -2,7 +2,7 @@
 
 Note: this project uses pyqtdarktheme by default, but it is not imported.
 
-Simple visual Color Picker with a modern UI created with PyQt5 to easily get color input from the user.
+Simple visual Color Picker with a modern UI created with PyQt6 to easily get color input from the user.
 
 ![colorpicker](https://user-images.githubusercontent.com/71983360/95017068-408f8100-0657-11eb-8001-a6788e94abba.png)
 
@@ -99,7 +99,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
   If you need to get the auto-created application, you can use this:
 
   ```python
-  from PyQt5.QtWidgets import QApplication
+  from PyQt6.QtWidgets import QApplication
   app = QApplication.instance()
   ```
 

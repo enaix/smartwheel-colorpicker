@@ -2,16 +2,16 @@
 #                                       #
 # Modern Color Picker by Tom F.         #
 # Version 1.4.1                         #
-# made with Qt Creator & PyQt5          #
+# made with Qt Creator & PyQt6          #
 #                                       #
 # ------------------------------------- #
 
 import colorsys
 from typing import Union
 
-from PyQt5.QtCore import (QPoint, Qt)
-from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import (QApplication, QDialog, QGraphicsDropShadowEffect)
+from PyQt6.QtCore import (QPoint, Qt)
+from PyQt6.QtGui import QColor
+from PyQt6.QtWidgets import (QApplication, QDialog, QGraphicsDropShadowEffect)
 
 from .ui_dark import Ui_ColorPicker as Ui_Dark
 from .ui_dark_alpha import Ui_ColorPicker as Ui_Dark_Alpha
@@ -45,8 +45,8 @@ class ColorPicker(QDialog):
 
 
         # Make Frameless
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setWindowTitle("Color Picker")
 
         # Add DropShadow
@@ -104,7 +104,7 @@ class ColorPicker(QDialog):
         r,g,b = lc
         self.ui.lastcolor_vis.setStyleSheet(f"background-color: rgb({r},{g},{b})")
 
-        if self.exec_():
+        if self.exec():
             r, g, b = hsv2rgb(self.color)
             self.lastcolor = (r,g,b)
             if self.usingAlpha: return (r,g,b,self.alpha)
@@ -189,13 +189,13 @@ class ColorPicker(QDialog):
 
     def moveWindow(self, event):
         # MOVE WINDOW
-        if event.buttons() == Qt.LeftButton:
+        if event.buttons() == Qt.MouseButton.LeftButton:
             self.move(self.pos() + event.globalPos() - self.dragPos)
             self.dragPos = event.globalPos()
             event.accept()
 
     def moveSVSelector(self, event):
-        if event.buttons() == Qt.LeftButton:
+        if event.buttons() == Qt.MouseButton.LeftButton:
             pos = event.pos()
             if pos.x() < 0: pos.setX(0)
             if pos.y() < 0: pos.setY(0)
@@ -205,7 +205,7 @@ class ColorPicker(QDialog):
             self.hsvChanged()
 
     def moveHueSelector(self, event):
-        if event.buttons() == Qt.LeftButton:
+        if event.buttons() == Qt.MouseButton.LeftButton:
             pos = event.pos().y() - 7
             if pos < 0: pos = 0
             if pos > 185: pos = 185
