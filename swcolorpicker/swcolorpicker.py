@@ -9,7 +9,7 @@
 import colorsys
 from typing import Union
 
-from PyQt6.QtCore import (QPoint, Qt)
+from PyQt6.QtCore import (QPoint, QPointF, Qt)
 from PyQt6.QtGui import QColor
 from PyQt6.QtWidgets import (QApplication, QDialog, QGraphicsDropShadowEffect)
 
@@ -185,18 +185,19 @@ class ColorPicker(QDialog):
 
     # Dragging Functions
     def setDragPos(self, event):
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition()
 
     def moveWindow(self, event):
         # MOVE WINDOW
         if event.buttons() == Qt.MouseButton.LeftButton:
-            self.move(self.pos() + event.globalPos() - self.dragPos)
-            self.dragPos = event.globalPos()
+            point = self.pos().toPointF() + event.globalPosition() - self.dragPos
+            self.move(point.toPoint())
+            self.dragPos = event.globalPosition()
             event.accept()
 
     def moveSVSelector(self, event):
         if event.buttons() == Qt.MouseButton.LeftButton:
-            pos = event.pos()
+            pos = event.position().toPoint()
             if pos.x() < 0: pos.setX(0)
             if pos.y() < 0: pos.setY(0)
             if pos.x() > 200: pos.setX(200)
@@ -206,10 +207,10 @@ class ColorPicker(QDialog):
 
     def moveHueSelector(self, event):
         if event.buttons() == Qt.MouseButton.LeftButton:
-            pos = event.pos().y() - 7
+            pos = event.position().y() - 7
             if pos < 0: pos = 0
             if pos > 185: pos = 185
-            self.ui.hue_selector.move(QPoint(7, pos))
+            self.ui.hue_selector.move(QPoint(7, int(pos)))
             self.hsvChanged()
 
     # Utility
