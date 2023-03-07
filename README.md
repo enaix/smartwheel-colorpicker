@@ -1,4 +1,5 @@
-# vcolorpicker
+## This is the color picker component of [smarthwheel-core](https://github.com/enaix/smartwheel-core). Forked from [pyqt-colorpicker](https://github.com/nlfmt/pyqt-colorpicker)
+
 Simple visual Color Picker with a modern UI created with PyQt5 to easily get color input from the user.
 
 ![colorpicker](https://user-images.githubusercontent.com/71983360/95017068-408f8100-0657-11eb-8001-a6788e94abba.png)
@@ -9,7 +10,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 1. Install using pip:
 
    ```
-   pip install vcolorpicker
+   pip install smartwheel-colorpicker
    ```
 
    or clone the repository yourself and run:
@@ -23,7 +24,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 2. To ask for a color, import the `getColor` function and run it:
 
    ```python
-   from vcolorpicker import getColor
+   from smartwheel-colorpicker import getColor
    
    color = getColor()
    ```
@@ -37,18 +38,10 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
    picked_color = getColor(old_color)
    ```
 
-* **Changing the UI Theme**
-
-  ```python
-  from vcolorpicker import useLightTheme
-  
-  useLightTheme(True)
-  ```
-
 * **Adding Alpha selection**
 
   ```python
-  from vcolorpicker import useAlpha
+  from smartwheel-colorpicker import useAlpha
   
   useAlpha(True)
   ```
@@ -76,7 +69,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 
 * Example:
   ```python
-  from vcolorpicker import getColor, hsv2rgb, rgb2hsv 
+  from smartwheel-colorpicker import getColor, hsv2rgb, rgb2hsv 
   
   old_color = hsv2rgb((50,50,100,100))  # => (127,255,255,100)
 
@@ -107,11 +100,6 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
   from PyQt5.QtWidgets import QApplication
   app = QApplication.instance()
   ```
-
-## Bugs and Improvement ideas
-  If you find a bug, you can open an issue or write me an email (nlfmt@gmx.de)\
-  and I will try to get to it as fast as possible, or you can implement it\
-  yourself and create a pull request.
 
 
 ## License
