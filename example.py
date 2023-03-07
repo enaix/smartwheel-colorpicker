@@ -1,10 +1,9 @@
-from vcolorpicker import getColor, useLightTheme, useAlpha
+from swcolorpicker import getColor, useAlpha
 
 old_color = (255, 255, 255)
 picked_color = getColor(old_color)
 print(picked_color)
 
-useLightTheme(True)
 useAlpha(True)
 
 old_color = (255, 230, 255, 50)
@@ -13,11 +12,11 @@ print(picked_color)
 
 
 # Using the old way of creating a ColorPicker:
-from vcolorpicker import ColorPicker, hsv2rgb, rgb2hsv
+from swcolorpicker import ColorPicker, hsv2rgb, rgb2hsv
 
 
 my_color_picker = ColorPicker(useAlpha=True)
-my_color_picker_light = ColorPicker(lightTheme=True)
+my_color_picker_light = ColorPicker()
 
 
 old_color = (255, 255, 255, 50)

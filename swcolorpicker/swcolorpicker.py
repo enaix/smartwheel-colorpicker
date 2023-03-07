@@ -15,18 +15,15 @@ from PyQt5.QtWidgets import (QApplication, QDialog, QGraphicsDropShadowEffect)
 
 from .ui_dark import Ui_ColorPicker as Ui_Dark
 from .ui_dark_alpha import Ui_ColorPicker as Ui_Dark_Alpha
-from .ui_light import Ui_ColorPicker as Ui_Light
-from .ui_light_alpha import Ui_ColorPicker as Ui_Light_Alpha
 
 from .img import *
 
 
 class ColorPicker(QDialog):
 
-    def __init__(self, lightTheme: bool = False, useAlpha: bool = False):
+    def __init__(self, useAlpha: bool = False):
         """Create a new ColorPicker instance.
 
-        :param lightTheme: If the UI should be light themed.
         :param useAlpha: If the ColorPicker should work with alpha values.
         """
 
@@ -37,16 +34,13 @@ class ColorPicker(QDialog):
         super(ColorPicker, self).__init__()
 
         self.usingAlpha = useAlpha
-        self.usingLightTheme = lightTheme
 
         # Call UI Builder function
         if useAlpha:
-            if lightTheme: self.ui = Ui_Light_Alpha()
-            else: self.ui = Ui_Dark_Alpha()
+            self.ui = Ui_Dark_Alpha()
             self.ui.setupUi(self)
         else:
-            if lightTheme: self.ui = Ui_Light()
-            else: self.ui = Ui_Dark()
+            self.ui = Ui_Dark()
             self.ui.setupUi(self)
 
 
@@ -337,7 +331,6 @@ def hsv2hex(h_or_color: Union[tuple, int], s: int = 0, v: int = 0, a: int = 0) -
 # toplevel functions
 
 __instance = None
-__lightTheme = False
 __useAlpha = False
 
 
@@ -351,17 +344,6 @@ def useAlpha(value=True) -> None:
     __useAlpha = value
 
 
-def useLightTheme(value=True) -> None:
-    """Set if the ColorPicker should use the light theme.
-
-    :param value: True for light theme, False for dark theme. Defaults to True
-    :return: None
-    """
-
-    global __lightTheme
-    __lightTheme = value
-
-
 def getColor(lc: tuple = None) -> tuple:
     """Shows the ColorPicker and returns the picked color.
 
@@ -372,11 +354,11 @@ def getColor(lc: tuple = None) -> tuple:
     global __instance
 
     if __instance is None:
-        __instance = ColorPicker(useAlpha=__useAlpha, lightTheme=__lightTheme)
+        __instance = ColorPicker(useAlpha=__useAlpha)
 
-    if __useAlpha != __instance.usingAlpha or __lightTheme != __instance.usingLightTheme:
+    if __useAlpha != __instance.usingAlpha:
         del __instance
-        __instance = ColorPicker(useAlpha=__useAlpha, lightTheme=__lightTheme)
+        __instance = ColorPicker(useAlpha=__useAlpha)
 
     return __instance.getColor(lc)
 

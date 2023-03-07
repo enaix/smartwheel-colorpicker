@@ -1,5 +1,7 @@
 ## This is the color picker component of [smarthwheel-core](https://github.com/enaix/smartwheel-core). Forked from [pyqt-colorpicker](https://github.com/nlfmt/pyqt-colorpicker)
 
+Note: this project uses pyqtdarktheme by default, but it is not imported.
+
 Simple visual Color Picker with a modern UI created with PyQt5 to easily get color input from the user.
 
 ![colorpicker](https://user-images.githubusercontent.com/71983360/95017068-408f8100-0657-11eb-8001-a6788e94abba.png)
@@ -24,7 +26,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 2. To ask for a color, import the `getColor` function and run it:
 
    ```python
-   from smartwheel-colorpicker import getColor
+   from swcolorpicker import getColor
    
    color = getColor()
    ```
@@ -41,7 +43,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 * **Adding Alpha selection**
 
   ```python
-  from smartwheel-colorpicker import useAlpha
+  from swcolorpicker import useAlpha
   
   useAlpha(True)
   ```
@@ -69,7 +71,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 
 * Example:
   ```python
-  from smartwheel-colorpicker import getColor, hsv2rgb, rgb2hsv 
+  from swcolorpicker import getColor, hsv2rgb, rgb2hsv 
   
   old_color = hsv2rgb((50,50,100,100))  # => (127,255,255,100)
 
