@@ -12,7 +12,7 @@ Simple visual Color Picker with a modern UI created with PyQt5 to easily get col
 1. Install using pip:
 
    ```
-   pip install smartwheel-colorpicker
+   pip install swcolorpicker
    ```
 
    or clone the repository yourself and run:
